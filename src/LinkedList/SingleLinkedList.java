@@ -8,10 +8,10 @@ class Methods
 {
 	Node head;
 	
-    void insertAtBegin(int data)
+    void insertAtBegin(int data)  // data =9
 	{
     
-    	Node newNode=new Node();
+    	Node newNode=new Node();  // creating new node data
     	
     	newNode.data=data;
     	newNode.link=null;
@@ -42,7 +42,7 @@ class Methods
 	void insertAtEnd(int data)
 	{
     	Node newNode=new Node();
-    	newNode.data=data;
+    	newNode.data=data;  // 11
     	newNode.link=null;
         if(head==null)       //empty list
         {

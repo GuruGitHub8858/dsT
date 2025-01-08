@@ -13,7 +13,7 @@ class DoublyMethods extends DubNode {
     void insertAtBegin(int data)
     {
         DubNode newDubNode = new DubNode();
-        newDubNode.data = data;
+        newDubNode.data = data;   //1
         newDubNode.next=null;
         newDubNode.prev=null;
         if (head == null) 
@@ -115,6 +115,7 @@ class DoublyMethods extends DubNode {
        prev.next=temp.next;
        temp.next.prev=prev;
     }
+    
     void deletionAtEnd()
     {
         
