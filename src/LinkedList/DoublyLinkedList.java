@@ -8,7 +8,7 @@ class DubNode {
 
 class DoublyMethods extends DubNode {
     DubNode head ;
-    DubNode tail=null;
+    DubNode tail;
 
     void insertAtBegin(int data)
     {

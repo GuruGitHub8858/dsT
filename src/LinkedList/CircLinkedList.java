@@ -21,7 +21,7 @@ class CircMethods {
         CircNode newNode = new CircNode(data);
         if (head == null) {
             head = newNode;
-            head.next = head; // Pointing to itself for a single node circular list.
+            head.next = head; 
         } else {
             CircNode temp = head;
             while (temp.next != head) {

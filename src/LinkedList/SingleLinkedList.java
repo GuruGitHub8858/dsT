@@ -1,4 +1,6 @@
 package LinkedList;
+
+// node declaration
 class Node
 {
 	int data;
@@ -7,25 +9,21 @@ class Node
 class Methods 
 {
 	Node head;
-	
-    void insertAtBegin(int data)  // data =9
+    void insertAtBegin(int data)  // data =2
 	{
-    
-    	Node newNode=new Node();  // creating new node data
-    	
-    	newNode.data=data;
-    	newNode.link=null;
-    	
-        if(head==null)       //empty list
+    	//node creation
+        Node newNode=new Node();
+        newNode.data=data;
+        newNode.link=null;
+        //my list is empty
+        if(head==null)
         {
         	head=newNode;
         }
-        else                 //non empty list
-        {
+        else {
         	newNode.link=head;
-        	System.out.println(newNode.link);
-        	head=newNode ;
-        }
+        	head=newNode;
+        }      
 	}
      void deletionAtEnd()
      {
@@ -48,8 +46,7 @@ class Methods
         {
         	head=newNode;
         }
-        else                 //non empty list
-        {
+        else {
         	Node temp=head;
         	while(temp.link!=null)
         	{
@@ -57,6 +54,7 @@ class Methods
         	}
         	temp.link=newNode;
         }
+       
 	}
     
     void insertAtPos(int pos,int data)

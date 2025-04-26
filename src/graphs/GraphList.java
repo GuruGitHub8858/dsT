@@ -6,51 +6,54 @@ import java.util.List;
 import java.util.Queue;
 
 public class GraphList {
-    static List<List<Integer>> al = new ArrayList<>(); // Adjacency List to store graph
+    static List<List<Integer>> al = new ArrayList<>();
 
-    // Constructor to initialize graph with V vertices
     public GraphList(int V) {
         for (int i = 0; i < V; i++) {
             al.add(new ArrayList<>());
         }
     }
 
-    // Method to add an undirected edge between vertices s and d
     public void addEdge(int s, int d) {
         al.get(s).add(d);
-        al.get(d).add(s);  // Since it's an undirected graph
+        al.get(d).add(s);
     }
 
-    // BFS function using a Queue
     void BFS(int start) {
-        boolean[] visited = new boolean[al.size()]; // To track visited nodes
-        Queue<Integer> queue = new LinkedList<>(); // Queue for BFS
-
-        // Mark the start vertex as visited and enqueue it
+        boolean[] visited = new boolean[al.size()];
+        Queue<Integer> queue = new LinkedList<>();
         visited[start] = true;
         queue.add(start);
 
-        // Perform BFS
         while (!queue.isEmpty()) {
             int current = queue.poll();
-            System.out.print(current + " "); // Print current node
+            System.out.print(current + " ");
+            List<Integer> neigh = al.get(current);
 
-            // Visit all adjacent vertices of the current node
-            for (int neighbor : al.get(current)) {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    queue.add(neighbor);
+            for (int i = 0; i < neigh.size(); i++) {
+                int data = neigh.get(i);
+                if (!visited[data]) {
+                    visited[data] = true;
+                    queue.add(data);
                 }
             }
         }
     }
 
-    // Recursive DFS function for graph traversal
-    void DFSRec(boolean[] visited, int node) {
-        visited[node] = true; // Mark current node as visited
-        System.out.print(node + " "); // Print current node
+    void displayGraph() {
+        System.out.println("Adjacency List:");
+        for (int i = 0; i < al.size(); i++) {
+            System.out.print(i + ": ");
+            for (int j = 0; j < al.get(i).size(); j++) {
+                System.out.print(al.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
 
-        // Recursively visit all adjacent vertices not yet visited
+    void DFSRec(boolean[] visited, int node) {
+        visited[node] = true;
+        System.out.print(node + " ");
         for (int neighbor : al.get(node)) {
             if (!visited[neighbor]) {
                 DFSRec(visited, neighbor);
@@ -58,29 +61,26 @@ public class GraphList {
         }
     }
 
-    // Main DFS function which calls the recursive DFS
     void DFS(int start) {
-        boolean[] visited = new boolean[al.size()]; // Initialize visited array
-        DFSRec(visited, start); // Start DFS from the start node
+        boolean[] visited = new boolean[al.size()];
+        DFSRec(visited, start);
     }
 
     public static void main(String[] args) {
-        GraphList g = new GraphList(4); // Create a graph with 4 vertices
-
-        // Add edges to the graph (example graph: 0-1, 0-2, 0-3, 2-3)
+        GraphList g = new GraphList(4);
         g.addEdge(0, 1);
         g.addEdge(0, 2);
         g.addEdge(0, 3);
         g.addEdge(2, 3);
 
-        // Perform BFS traversal starting from vertex 0
+        g.displayGraph();
+
         System.out.print("BFS Traversal: ");
-        g.BFS(1);  // BFS from vertex 0
+        g.BFS(1);
         System.out.println();
 
-        // Perform DFS traversal starting from vertex 0
         System.out.print("DFS Traversal: ");
-        g.DFS(0);  // DFS from vertex 0
+        g.DFS(0);
         System.out.println();
     }
 }

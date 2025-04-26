@@ -1,41 +1,39 @@
 package tree;
 
-//Node Class
-class Node {
+//TNode Class
+class TNode {
  int data;
- Node left, right;
+ TNode left, right;
 
- Node(int value) {
+ TNode(int value) {
      data = value;
      left = right = null;
  }
 }
-
-//Binary Tree Implementation
 class Bst {
- Node root;
+ TNode root;
 
- Node createNode(int data) {
-     return new Node(data);
+ TNode createTNode(int data) {
+     return new TNode(data);
  }
 
- void insertNode(int data) {
-     Node newNode = createNode(data);
+ void insertTNode(int data) {
+     TNode newTNode = createTNode(data);
      if (root == null) {
-         root = newNode;
+         root = newTNode;
      } else {
-         Node current = root;
+         TNode current = root;
          while (true) {
              if (data <= current.data) {
                  if (current.left == null) {
-                     current.left = newNode;
+                     current.left = newTNode;
                      break;
                  } else {
                      current = current.left;
                  }
              } else {
                  if (current.right == null) {
-                     current.right = newNode;
+                     current.right = newTNode;
                      break;
                  } else {
                      current = current.right;
@@ -45,8 +43,8 @@ class Bst {
      }
  }
 
- Node searchNode(int data) {
-     Node current = root;
+ TNode searchTNode(int data) {
+     TNode current = root;
      while (current != null) {
          if (data == current.data) {
              return current;
@@ -60,7 +58,7 @@ class Bst {
  }
 
  // Traversal Methods
- void inOrder(Node node) {
+ void inOrder(TNode node) {
      if (node != null) {
          inOrder(node.left);
          System.out.print(node.data + " ");
@@ -68,7 +66,7 @@ class Bst {
      }
  }
 
- void preOrder(Node node) {
+ void preOrder(TNode node) {
      if (node != null) {
          System.out.print(node.data + " ");
          preOrder(node.left);
@@ -76,7 +74,7 @@ class Bst {
      }
  }
 
- void postOrder(Node node) {
+ void postOrder(TNode node) {
      if (node != null) {
          postOrder(node.left);
          postOrder(node.right);
@@ -86,13 +84,13 @@ class Bst {
 
  public static void main(String[] args) {
      Bst tree = new Bst();
-     tree.insertNode(50);
-     tree.insertNode(30);
-     tree.insertNode(20);
-     tree.insertNode(40);
-     tree.insertNode(70);
-     tree.insertNode(60);
-     tree.insertNode(80);
+     tree.insertTNode(50);
+     tree.insertTNode(30);
+     tree.insertTNode(20);
+     tree.insertTNode(40);
+     tree.insertTNode(70);
+     tree.insertTNode(60);
+     tree.insertTNode(80);
 
      System.out.println("In-order Traversal:");
      tree.inOrder(tree.root);
@@ -107,7 +105,7 @@ class Bst {
      System.out.println();
 
      int searchData = 20;
-     Node searchResult = tree.searchNode(searchData);
+     TNode searchResult = tree.searchTNode(searchData);
      if (searchResult != null) {
          System.out.println(searchData + " found in the binary tree.");
      } else {
