@@ -76,7 +76,7 @@ public class GraphList {
         g.displayGraph();
 
         System.out.print("BFS Traversal: ");
-        g.BFS(1);
+        g.BFS(0);
         System.out.println();
 
         System.out.print("DFS Traversal: ");

@@ -25,9 +25,9 @@ public class Bt {
   
     public void inOrderTraversal(BinaryTreeNode node) {
         if (node != null) {
-            inOrderTraversal(node.left);
-            System.out.print(node.value + " ");
-            inOrderTraversal(node.right);
+            inOrderTraversal(node.left);   // l
+            System.out.print(node.value + " ");  // ro
+            inOrderTraversal(node.right);// r
         }
     }
 
