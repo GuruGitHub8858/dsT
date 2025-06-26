@@ -6,7 +6,7 @@ class Node
 	int data;
 	Node link;	
 }
-class Methods 
+class Karthi 
 {
 	Node head;
     void insertAtBegin(int data)  // data =2
@@ -27,9 +27,7 @@ class Methods
 	}
      void deletionAtEnd()
      {
-
-    	 Node temp=head;
-    	 
+    	 Node temp=head;	 
     	 while(temp.link.link!=null)
     	 {
     		 temp=temp.link;
@@ -124,7 +122,7 @@ class Methods
     }
     
 }
-public class SingleLinkedList extends Methods
+public class SingleLinkedList extends Karthi
 {
 	public static void main(String[] args) {
 		SingleLinkedList list=new SingleLinkedList();

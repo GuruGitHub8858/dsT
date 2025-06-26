@@ -12,17 +12,11 @@ class BinaryTreeNode {
         left = right = null;
     }
 }
-
-
 public class Bt {
     BinaryTreeNode root;
-
-
     public Bt() {
         root = null;
     }
-
-  
     public void inOrderTraversal(BinaryTreeNode node) {
         if (node != null) {
             inOrderTraversal(node.left);   // l
@@ -30,7 +24,6 @@ public class Bt {
             inOrderTraversal(node.right);// r
         }
     }
-
     // Pre-order traversal (root, left, right)
     public void preOrderTraversal(BinaryTreeNode node) {
         if (node != null) {
@@ -39,7 +32,6 @@ public class Bt {
             preOrderTraversal(node.right);
         }
     }
-
     // Post-order traversal (left, right, root)
     public void postOrderTraversal(BinaryTreeNode node) {
         if (node != null) {
@@ -48,17 +40,14 @@ public class Bt {
             System.out.print(node.value + " ");
         }
     }
-
     public void insert(int value) {  // 1
         BinaryTreeNode newNode = new BinaryTreeNode(value);
-        
         if (root == null) {
             root = newNode;
             return;
         }
         Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        
         while (!queue.isEmpty()) {
             BinaryTreeNode current = queue.poll();
             
@@ -67,8 +56,7 @@ public class Bt {
                 break;
             } else {
                 queue.offer(current.left);
-            }
-            
+            }   
             if (current.right == null) {
                 current.right = newNode;
                 break;
@@ -76,28 +64,20 @@ public class Bt {
                 queue.offer(current.right);
             }
         }
-    }
-
-    
+    }   
     public static void main(String[] args) {
         Bt tree = new Bt();
-
-  
         tree.insert(1);
         tree.insert(2);
         tree.insert(3);
         tree.insert(4);
         tree.insert(5);
         tree.insert(6);
-        tree.insert(7);
-
-       
+        tree.insert(7);      
         System.out.println("In-order Traversal: ");
         tree.inOrderTraversal(tree.root);
-
         System.out.println("\nPre-order Traversal: ");
         tree.preOrderTraversal(tree.root);
-
         System.out.println("\nPost-order Traversal: ");
         tree.postOrderTraversal(tree.root);
     }
