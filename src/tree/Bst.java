@@ -84,13 +84,13 @@ class Bst {
 
  public static void main(String[] args) {
      Bst tree = new Bst();
-     tree.insertTNode(50);
-     tree.insertTNode(30);
+     tree.insertTNode(90);
      tree.insertTNode(20);
-     tree.insertTNode(40);
-     tree.insertTNode(70);
-     tree.insertTNode(60);
-     tree.insertTNode(80);
+     tree.insertTNode(30);
+     tree.insertTNode(120);
+     tree.insertTNode(240);
+     tree.insertTNode(310);
+     tree.insertTNode(23);
 
      System.out.println("In-order Traversal:");
      tree.inOrder(tree.root);
